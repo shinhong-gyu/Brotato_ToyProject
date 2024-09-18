@@ -1,2 +1,2 @@
 # Brotato_ToyProject
-Toy Project : Imitate Brotato
+Toy Project to imitate Brotato
