@@ -35,6 +35,8 @@ void AHG_GameBaseMode::SpawnEnemy()
 		{
 			RandFloat = FMath::FRandRange(300.0f, 1500.0f);
 			SpawnLocation = UKismetMathLibrary::RandomPointInBoundingBox(Player->GetActorLocation(), FVector(RandFloat, RandFloat, 0.0f));
+			SpawnLocation.X = FMath::Clamp(SpawnLocation.X, -1940.0f, 1450.0f);
+			SpawnLocation.Y = FMath::Clamp(SpawnLocation.Y, -1540.0f, 1540.0f);
 			SpawnRotation = FRotator::ZeroRotator;
 			if (waveCount == 1)
 			{

@@ -17,6 +17,12 @@ AHG_MasterEnemy::AHG_MasterEnemy()
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->SetupAttachment(BoxComp);
+
+	BoxComp->OnComponentBeginOverlap.AddDynamic(this,&AHG_MasterEnemy::OnMyBoxBeginOverlap);
+	BoxComp->SetGenerateOverlapEvents(true);
+	BoxComp->SetCollisionProfileName(TEXT("Enemy"));
+
+	MeshComp->SetCollisionProfileName(TEXT("NoCollision"));
 }
 
 // Called when the game starts or when spawned
@@ -32,5 +38,22 @@ void AHG_MasterEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (Target)
+	{
+		Direction = Target->GetActorLocation() - this->GetActorLocation();
+		Direction.Z = 0;
+		Direction.Normalize();
+
+		SetActorLocation(GetActorLocation() + Direction * Speed * DeltaTime);
+	}
+
+}
+
+void AHG_MasterEnemy::OnMyBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	auto* Player = Cast<ATestPlayer>(OtherActor);
+	if (Player) {
+		this->Destroy();
+	}
 }
 

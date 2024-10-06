@@ -26,15 +26,17 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Appearance
-	UPROPERTY(EditDefaultsOnly)
-	class UStaticMesh* MeshComp;
+	
 
 	class ATestPlayer* Target;
-
+	// Appearance
+	UPROPERTY(EditDefaultsOnly)
 	class UStaticMeshComponent* MeshComp;
 
+	UPROPERTY(EditDefaultsOnly)
 	class UBoxComponent* BoxComp;
 
+	UFUNCTION()
+	void OnMyBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
+		bool bFromSweep, const FHitResult& SweepResult);
 };
