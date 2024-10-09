@@ -38,7 +38,7 @@ void AHG_GameBaseMode::SpawnEnemy()
 			SpawnLocation.X = FMath::Clamp(SpawnLocation.X, -1940.0f, 1450.0f);
 			SpawnLocation.Y = FMath::Clamp(SpawnLocation.Y, -1540.0f, 1540.0f);
 			SpawnRotation = FRotator::ZeroRotator;
-			if (waveCount == 1)
+			if (WaveCount == 1)
 			{
 				AHG_Enemy_Lv1* SpawnedEnemy = GetWorld()->SpawnActor<AHG_Enemy_Lv1>(EnemyClass, SpawnLocation, SpawnRotation);
 				if (SpawnedEnemy)
@@ -50,4 +50,9 @@ void AHG_GameBaseMode::SpawnEnemy()
 		}
 
 	}
+}
+
+int32 AHG_GameBaseMode::GetWaveCount() const
+{
+	return WaveCount;
 }

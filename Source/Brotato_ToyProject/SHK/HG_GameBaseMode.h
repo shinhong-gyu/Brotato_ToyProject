@@ -16,7 +16,7 @@ class BROTATO_TOYPROJECT_API AHG_GameBaseMode : public AGameModeBase
 
 	AHG_GameBaseMode();
 private:
-	int32 waveCount = 1;
+	int32 WaveCount = 1;
 
 	UPROPERTY(EditDefaultsOnly)
 	float SpawnInterval = 5.0f;
@@ -35,4 +35,6 @@ public:
 	virtual void BeginPlay() override;
 
 	void SpawnEnemy();
+
+	int32 GetWaveCount() const;
 };
