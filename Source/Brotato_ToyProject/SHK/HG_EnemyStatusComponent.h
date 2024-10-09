@@ -56,7 +56,7 @@ public:
 
 	void SetHP();
 
-	void SetDamageIncRate();
+	void SetDamageIncRate(float Value);
 
-	void SetHPIncRate();
+	void SetHPIncRate(float Value);
 };
