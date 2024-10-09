@@ -24,21 +24,39 @@ private:
 	int32 RewardExp;
 
 	UPROPERTY(EditDefaultsOnly)
-	int32 HP;
+	float FirstHP;
+
+	UPROPERTY(EditDefaultsOnly)
+	float HP;
+	
 	
 	UPROPERTY(EditDefaultsOnly)
-	int32 Damage;
+	float FirstDamage;
+
+
+	UPROPERTY(EditDefaultsOnly)
+	float Damage;
 
 	UPROPERTY(EditDefaultsOnly)
 	int32 Speed;
 
 	int32 CurrentWave;
 
+	UPROPERTY(EditDefaultsOnly)
+	float DamageIncRate;
+
+	UPROPERTY(EditDefaultsOnly)
+	float HPIncRate;
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	virtual void SetDamage();
+	void SetDamage();
 
-	virtual void SetHP();
+	void SetHP();
+
+	void SetDamageIncRate();
+
+	void SetHPIncRate();
 };

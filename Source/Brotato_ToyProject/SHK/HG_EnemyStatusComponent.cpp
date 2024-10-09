@@ -36,9 +36,21 @@ void UHG_EnemyStatusComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 
 void UHG_EnemyStatusComponent::SetDamage()
 {
+	Damage = FirstDamage + DamageIncRate*CurrentWave;
 }
 
 void UHG_EnemyStatusComponent::SetHP()
 {
+	HP = FirstHP+ HPIncRate * CurrentWave;
+}
+
+void UHG_EnemyStatusComponent::SetDamageIncRate(float Value)
+{
+	DamageIncRate = Value;
+}
+
+void UHG_EnemyStatusComponent::SetHPIncRate(float Value)
+{
+	HPIncRate = Value;
 }
 

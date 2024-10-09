@@ -5,6 +5,7 @@
 #include "TestPlayer.h"
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "HG_EnemyStatusComponent.h"
 
 // Sets default values
 AHG_MasterEnemy::AHG_MasterEnemy()
@@ -23,6 +24,8 @@ AHG_MasterEnemy::AHG_MasterEnemy()
 	BoxComp->SetCollisionProfileName(TEXT("Enemy"));
 
 	MeshComp->SetCollisionProfileName(TEXT("NoCollision"));
+
+	StatusComp = CreateDefaultSubobject<UHG_EnemyStatusComponent>(TEXT("StatusComp"));
 }
 
 // Called when the game starts or when spawned
