@@ -18,6 +18,8 @@ class BROTATO_TOYPROJECT_API AHG_GameBaseMode : public AGameModeBase
 private:
 	int32 WaveCount = 1;
 
+	float WaveTime = 20.0f;
+
 	UPROPERTY(EditDefaultsOnly)
 	float SpawnInterval = 5.0f;
 
@@ -34,7 +36,18 @@ private:
 public:
 	virtual void BeginPlay() override;
 
+	virtual void Tick(float DeltaTime) override;
+
+	void SpawnWarning();
+
 	void SpawnEnemy();
 
+
 	int32 GetWaveCount() const;
+
+	void UpdateWaveTime();
+
+	void WaveCleared();
+
+	TArray<FVector> SpawnLoc;
 };

@@ -27,7 +27,6 @@ void ATestPlayer::BeginPlay()
 			subSys->AddMappingContext(IMC_Player, 0);
 		}
 	}
-	
 }
 
 // Called every frame
@@ -42,14 +41,14 @@ void ATestPlayer::Tick(float DeltaTime)
 	Direction = FVector::ZeroVector;
 
 	// Tick Event에서 실행
-	FVector CameraLocation = GetActorLocation();
+	FVector ActorLocation = GetActorLocation();
 
 	// X, Y 좌표를 제한 (맵 경계 설정)
-	CameraLocation.X = FMath::Clamp(CameraLocation.X, -1940.0f, 1450.0f);
-	CameraLocation.Y = FMath::Clamp(CameraLocation.Y, -1540.0f, 1540.0f);
+	ActorLocation.X = FMath::Clamp(ActorLocation.X, -1940.0f, 1450.0f);
+	ActorLocation.Y = FMath::Clamp(ActorLocation.Y, -1540.0f, 1540.0f);
 
 	// 카메라 위치 설정
-	SetActorLocation(CameraLocation);
+	SetActorLocation(ActorLocation);
 }
 
 // Called to bind functionality to input
