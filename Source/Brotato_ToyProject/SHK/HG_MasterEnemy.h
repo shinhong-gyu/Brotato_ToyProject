@@ -28,7 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 
-	class ATestPlayer* Target;
+	class ATestPawn* Target;
 	// Appearance
 	UPROPERTY(EditDefaultsOnly)
 	class UStaticMeshComponent* MeshComp;

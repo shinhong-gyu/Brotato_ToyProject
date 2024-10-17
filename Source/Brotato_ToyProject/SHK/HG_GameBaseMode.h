@@ -28,11 +28,12 @@ private:
 
 	int32 CurrentEnemyCount = 0;
 
-	class ATestPlayer* Player;
+	class ATestPawn* Player;
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AHG_MasterEnemy> EnemyClass; 
 
+	int32 SpawnEnemyCount = 5;
 public:
 	virtual void BeginPlay() override;
 
@@ -48,6 +49,8 @@ public:
 	void UpdateWaveTime();
 
 	void WaveCleared();
+
+	bool bIsWaveStarted = false;
 
 	TArray<FVector> SpawnLoc;
 };

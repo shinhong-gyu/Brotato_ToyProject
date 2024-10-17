@@ -4,6 +4,7 @@
 #include "SHK/HG_Enemy_Lv1.h"
 #include "TestPlayer.h"
 #include "HG_EnemyStatusComponent.h"
+#include "TestPawn.h"
 
 // Sets default values
 AHG_Enemy_Lv1::AHG_Enemy_Lv1()
@@ -16,7 +17,7 @@ AHG_Enemy_Lv1::AHG_Enemy_Lv1()
 void AHG_Enemy_Lv1::BeginPlay()
 {
 	Super::BeginPlay();
-	Target = Cast<ATestPlayer>(GetWorld()->GetFirstPlayerController()->GetCharacter());
+	Target = Cast<ATestPawn>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 }
 
 // Called every frame

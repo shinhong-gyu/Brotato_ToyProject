@@ -38,4 +38,5 @@ public:
 
 	FVector Direction;
 
+
 };

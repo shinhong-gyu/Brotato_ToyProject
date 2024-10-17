@@ -6,6 +6,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "HG_EnemyStatusComponent.h"
+#include "TestPawn.h"
 
 // Sets default values
 AHG_MasterEnemy::AHG_MasterEnemy()
@@ -33,7 +34,7 @@ void AHG_MasterEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Target = Cast<ATestPlayer>(GetWorld()->GetFirstPlayerController()->GetCharacter());
+	Target = Cast<ATestPawn>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 }
 
 // Called every frame
@@ -54,7 +55,7 @@ void AHG_MasterEnemy::Tick(float DeltaTime)
 
 void AHG_MasterEnemy::OnMyBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	auto* Player = Cast<ATestPlayer>(OtherActor);
+	auto* Player = Cast<ATestPawn>(OtherActor);
 	if (Player) {
 		this->Destroy();
 	}
